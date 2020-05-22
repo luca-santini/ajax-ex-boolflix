@@ -7,19 +7,16 @@ var query = 'inception';
         'url': 'https://api.themoviedb.org/3/search/movie',
         'method': 'GET',
         'data': {
-            'api': '6807f8ca279b3a72a7b18a38904c3e42',
+            'api_key': '6807f8ca279b3a72a7b18a38904c3e42',
             'query': query,
             'language': 'it'
         },
-        'success':
-        {
-        $('#target').click(function() {
-            console.log(query);
-        }
+        'success': function(data) {
+            var query = data.response;
+            console.log(data.response);
         },
         'error': function() {
-                alert('si è verificato un errore');
-            }
+            alert('si è verificato un errore');
+        }
     });
-
-});
+    });
