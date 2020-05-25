@@ -23,8 +23,16 @@ $(document).ready(function() {
                         'titolo': movie.title,
                         'titolo_originale': movie.original_title,
                         'lingua': movie.original_language,
-                        'voto': movie.vote_average
+                        // 'voto': movie.vote_average
+                        'voto': function(voto_dimezzato) {
+                            var voto_medio = '<i class="fas fa-star"></i>';
+                            for (var i = 0; i < voto_medio.length; i++) {
+                                var voto_dimezzato = voto_medio / 2;
+                                console.log(voto_dimezzato);
+                            };
+                        }
                     }
+
                     // tramite handlebars preparo l'html finale con i dati dello studente all'interno
                     var html_finale = template_function(dati_movies);
 
