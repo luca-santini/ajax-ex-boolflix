@@ -6,7 +6,6 @@
 }
 body {
     background-color: black;
-
 }
 header {
     background-color: grey;
@@ -15,7 +14,6 @@ header {
     height: 100px;
     padding: 40px 30px;
 }
-
 .header-left {
     float: left;
 }
@@ -26,4 +24,28 @@ header {
 h1 {
     color: red;
     font-size: 30px;
+}
+.titolo-ricerca {
+    color: white;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.titolo-ricerca.visible {
+    display: block;
+}
+#wrapper {
+    padding: 150px 50px 50px;
+}
+#risultati {
+    display: flex;
+    flex-wrap: wrap;
+}
+.card {
+    width: 200px;
+    color: white;
+    border: 1px solid white;
+    padding: 10px;
+    margin: 10px;
+    list-style-type: none;
 }

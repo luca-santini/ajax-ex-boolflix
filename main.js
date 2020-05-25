@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    // recupero la struttura html del template di base
+        var template_html = $('#card-template').html();
+        // preparo la funzione da utilizzare per utilizzare il template
+        var template_function = Handlebars.compile(template_html);
     $('button').click(function() {
         var search = $('#search').val();
         $.ajax({
@@ -17,11 +21,15 @@ $(document).ready(function() {
                     // Ciclare i risultati e per ogni film restituito, stampando in pagina titolo, titolo originale, lingua, voto
                     var dati_movies = {
                         'titolo': movie.title,
-                        'titolo originale': movie.original_title,
+                        'titolo_originale': movie.original_title,
                         'lingua': movie.original_language,
                         'voto': movie.vote_average
                     }
-                    console.log(dati_movies);
+                    // tramite handlebars preparo l'html finale con i dati dello studente all'interno
+                    var html_finale = template_function(dati_movies);
+
+                    // appendo in pagina una card con i dati dello studente
+                    $('#risultati').append(html_finale);
                 } // ciclo for
             },
             'error': function() {
