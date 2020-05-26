@@ -24,13 +24,7 @@ $(document).ready(function() {
                         'titolo_originale': movie.original_title,
                         'lingua': movie.original_language,
                         // 'voto': movie.vote_average
-                        'voto': function(voto_dimezzato) {
-                            var voto_medio = '<i class="fas fa-star"></i>';
-                            for (var i = 0; i < voto_medio.length; i++) {
-                                var voto_dimezzato = voto_medio / 2;
-                                console.log(voto_dimezzato);
-                            };
-                        }
+                        'voto': stelline(normalizza_voto(movie.vote_average))
                     }
 
                     // tramite handlebars preparo l'html finale con i dati dello studente all'interno
@@ -45,4 +39,27 @@ $(document).ready(function() {
             }
         });
     });
+    // funzione per trasformare il voto in numero intero da 1 a 5
+    function normalizza_voto(voto) {
+        var voto5 = voto / 2;
+        return Math.ceil(voto5);
+    }
+
+    // funzione che restituisce le stelline piene e vuote in base al voto
+    function stelline(numero_stelle) {
+        // in totale ci devono essere 5 stelle:
+        // (numero_stelle) piene e (5 - numero_stelle) vuote
+        var tag_stelle = '';
+        for (var i = 1; i <= 5; i++) {
+            // devo aggiungere una stella piena o una stella vuota?
+            if(i <= numero_stelle) {
+                // stella piena
+                tag_stelle += '<i class="fas fa-star"></i>';
+            } else {
+                // stella vuota
+                tag_stelle += '<i class="far fa-star"></i>';
+            }
+        }
+        return tag_stelle;
+    }
 });
