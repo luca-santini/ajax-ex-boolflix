@@ -1,5 +1,5 @@
 $(document).ready(function() {
-        // variabili per le chiamate ajax
+        // variabili per le chiamate ajax api key
         var api_key = 'c4a5d0f9204fe8ed8998978f4fb5f4c2';
         var api_url_base = 'https://api.themoviedb.org/3/';
         var api_img_url_base = 'https://image.tmdb.org/t/p/';
