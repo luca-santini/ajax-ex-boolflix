@@ -29,7 +29,7 @@ $(document).ready(function() {
                     var dati_movies = {
                         'titolo': movie.title,
                         'titolo_originale': movie.original_title,
-                        'lingua': movie.original_language,
+                        'lingua': bandiera_lingua(movie.original_language),
                         'path_copertina': api_img_url_base + dimensione_img + movie.poster_path,
                         'voto': stelline(normalizza_voto(movie.vote_average))
                     }
@@ -46,6 +46,15 @@ $(document).ready(function() {
             }
         });
     });
+
+    // funzione per restituire la bandierina della lingua, se disponibile
+    function bandiera_lingua(lingua) {
+        var bandiere_disponibili = ['en', 'it'];
+        if (bandiere_disponibili.includes(lingua)) {
+            return '<img src="flags/' + lingua + '.png"  alt"'+ lingua + '">';
+        }
+    }
+
     // funzione per trasformare il voto in numero intero da 1 a 5
     function normalizza_voto(voto) {
         var voto5 = voto / 2;
