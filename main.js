@@ -60,7 +60,7 @@ $(document).ready(function() {
         for (var i = 1; i <= 5; i++) {
             // devo aggiungere una stella piena o una stella vuota?
             if(i <= numero_stelle) {
-                // stella piena
+                // stella piena ???
                 tag_stelle += '<i class="fas fa-star"></i>';
             } else {
                 // stella vuota
