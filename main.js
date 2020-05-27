@@ -1,15 +1,22 @@
 $(document).ready(function() {
-    // recupero la struttura html del template di base
+        // variabili per le chiamate ajax
+        var api_key = 'c4a5d0f9204fe8ed8998978f4fb5f4c2';
+        var api_url_base = 'https://api.themoviedb.org/3/';
+        var api_img_url_base = 'https://image.tmdb.org/t/p/';
+        var dimensione_img = 'w185';
+
+        // recupero la struttura html del template di base
         var template_html = $('#card-template').html();
         // preparo la funzione da utilizzare per utilizzare il template
         var template_function = Handlebars.compile(template_html);
+
     $('button').click(function() {
         var search = $('#search').val();
         $.ajax({
             'url': 'https://api.themoviedb.org/3/search/movie',
             'method': 'GET',
             'data': {
-                'api_key': '6807f8ca279b3a72a7b18a38904c3e42',
+                'api_key': api_key,
                 'query': search,
                 'language': 'it'
             },
@@ -23,7 +30,7 @@ $(document).ready(function() {
                         'titolo': movie.title,
                         'titolo_originale': movie.original_title,
                         'lingua': movie.original_language,
-                        // 'voto': movie.vote_average
+                        'path_copertina': api_img_url_base + dimensione_img + movie.poster_path,
                         'voto': stelline(normalizza_voto(movie.vote_average))
                     }
 

@@ -24,16 +24,16 @@
                 "<span id="ricerca-utente"></span>"
             </h2>
         <main id="risultati">
-
         </main>
         </div>
 
         <script id="card-template" type="text/x-handlebars-template">
             <ul class="card">
+                <li>  <img src="{{ path_copertina }}" alt="{{ titolo }}"></li>
                 <li>{{ titolo }}</li>
                 <li>{{ titolo_originale }}</li>
                 <li>{{ lingua }}</li>
-                <li>{{ voto }}</li>
+                <li>{{{ voto }}}</li>
             </ul>
         </script>
 
