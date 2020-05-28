@@ -49,7 +49,7 @@ $(document).ready(function() {
 
     // funzione per restituire la bandierina della lingua, se disponibile
     function bandiera_lingua(lingua) {
-        var bandiere_disponibili = ['en', 'it'];
+    var bandiere_disponibili = ['en', 'it'];
         if (bandiere_disponibili.includes(lingua)) {
             return '<img src="flags/' + lingua + '.png"  alt"'+ lingua + '">';
         }
